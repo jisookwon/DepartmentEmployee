@@ -6,8 +6,7 @@
 </head>
 <body>
 <div th:each="department : ${departments}">
-    <h2 th:text="${department.name}"></h2>
-
+    <h4 th:text="${department.name}"></h4>
     <ul>
         <th:block th:each="employee : ${department.employees}">
             <li th:inline="text"><b>[[${employee.title}]]</b></li>

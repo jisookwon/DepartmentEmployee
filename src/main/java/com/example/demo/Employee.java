@@ -11,17 +11,22 @@ public class Employee {
     private long id;
 
     @NotNull
-    @Size(min=4)
+    @Size(min = 4)
+    private String name;
+
+    @NotNull
+    @Size(min = 4)
     private String title;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "department_id")
     private Department department;
 
     public Employee() {
     }
 
-    public Employee(@NotNull @Size(min = 4) String title,  Department department) {
+    public Employee(@NotNull @Size(min = 4) String name, @NotNull @Size(min = 4) String title, Department department) {
+        this.name = name;
         this.title = title;
         this.department = department;
     }
@@ -32,6 +37,14 @@ public class Employee {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTitle() {
@@ -50,3 +63,5 @@ public class Employee {
         this.department = department;
     }
 }
+
+

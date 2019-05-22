@@ -24,7 +24,7 @@ public class HomeController {
     public String listEmployees(Model model){
         model.addAttribute("employees", employeeRepository.findAll());
         model.addAttribute("departments", departmentRepository.findAll());
-        return "list";
+        return "index";
     }
 
     @GetMapping("/add")
@@ -66,7 +66,7 @@ public class HomeController {
     @GetMapping("/addDepartment")
     public String departmentForm(Model model){
         model.addAttribute("department", new Department());
-        return "DepartmentForm";
+        return "departmentForm";
     }
     @PostMapping("/processDepartment")
     public String processDepartment(@Valid Department department, BindingResult result){
