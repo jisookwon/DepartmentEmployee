@@ -24,7 +24,7 @@ public class HomeController {
     public String listEmployees(Model model){
         model.addAttribute("employees", employeeRepository.findAll());
         model.addAttribute("departments", departmentRepository.findAll());
-        return "list";
+        return "index";
     }
 
     @GetMapping("/add")

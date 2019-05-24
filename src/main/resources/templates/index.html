@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<div th:replace="base::nav"></div>
 <div th:each="department : ${departments}">
     <h4 th:text="${department.name}"></h4>
     <ul>
