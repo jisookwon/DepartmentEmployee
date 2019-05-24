@@ -7,10 +7,11 @@
 </head>
 <body>
 <div th:replace="base::nav"></div>
-Title:<span th:text="${employee.title}"></span><br/>
-Department:<span th:text="${employee.department.name}"></span><br/>
+Name : <span th:text="${employee.name}"></span><br/>
+Title : <span th:text="${employee.title}"></span><br/>
+Department : <span th:text="${employee.department.name}"></span><br/>
 
 <a th:href="@{/delete/{id}(id=${employee.id})}">Delete this employee</a>
-
+<div th:replace="base::bootstrapjs"></div>
 </body>
 </html>

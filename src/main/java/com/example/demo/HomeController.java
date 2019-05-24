@@ -21,10 +21,15 @@ public class HomeController {
 
     //==============Employee==============
     @RequestMapping("/")
-    public String listEmployees(Model model){
+    public String listDepartment(Model model){
         model.addAttribute("employees", employeeRepository.findAll());
         model.addAttribute("departments", departmentRepository.findAll());
-        return "index";
+        return "listDepartment";
+    }
+    @RequestMapping("/listEmployee")
+    public String listEmployees(Model model){
+        model.addAttribute("employees", employeeRepository.findAll());
+        return "listEmployee";
     }
 
     @GetMapping("/add")
@@ -41,7 +46,7 @@ public class HomeController {
             return "employeeForm";
         }
         employeeRepository.save(employee);
-        return  "redirect:/";
+        return  "redirect:/listEmployee";
     }
     @RequestMapping("/detail/{id}")
     public String showEmployee(@PathVariable("id") long id, Model model){
@@ -59,7 +64,7 @@ public class HomeController {
     @RequestMapping("/delete/{id}")
     public String delSong(@PathVariable("id") long id){
         employeeRepository.deleteById(id);
-        return "redirect:/";
+        return "redirect:/listEmployee";
     }
 
     //========================= Department================

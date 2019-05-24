@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
     <title>Title</title>
+    <div th:replace="base::bootstrapcss"></div>
 </head>
 <body>
 <div th:replace="base::nav"></div>
+
 <div th:each="department : ${departments}">
-    <h4 th:text="${department.name}"></h4>
-    <ul>
+    <h5 th:text="${department.name}"></h5>
+    <ul><h7>
         <th:block th:each="employee : ${department.employees}">
-            <li th:inline="text"><b>[[${employee.title}]]</b></li>
-        </th:block>
+            <li th:inline="text"><b>[[${employee.name}]] - [[${employee.title}]]</b></li>
+        </th:block></h7>
     </ul>
 </div>
-
+<div th:replace="base::bootstrapjs"></div>
 </body>
 </html>

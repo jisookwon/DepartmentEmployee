@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="base::bootstrapcss"></div>
+</head>
+<body>
+<div th:replace="base::nav"></div>
+
+<div class="container">
+<br/>
+    <h5>Employee List</h5>
+    <p></p>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Department</th>
+            <th>picture</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employees}">
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.title}"></td>
+            <td th:text="${employee.department.name}"></td>
+            <td></td>
+            <td>
+                <a th:href="@{/update/{id}(id=${employee.id})}">Update</a>
+                <a th:href="@{/detail/{id}(id=${employee.id})}">Details</a>
+                <a th:href="@{/delete/{id}(id=${employee.id})}">Delete</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+
+<!--<table>-->
+    <!--&lt;!&ndash;Row 1&ndash;&gt;-->
+    <!--<tr>-->
+        <!--<th>Name</th>-->
+        <!--<th>Title</th>-->
+        <!--<th>Department</th>-->
+        <!--<th>Actions</th>-->
+    <!--</tr>-->
+    <!--&lt;!&ndash;Row 2&ndash;&gt;-->
+    <!--<tr th:each="employee : ${employees}">-->
+        <!--<td th:text="${employee.name}"></td>-->
+        <!--<td th:text="${employee.title}"></td>-->
+        <!--<td th:text="${employee.department.name}"></td>-->
+        <!--<td>-->
+            <!--<a th:href="@{/update/{id}(id=${employee.id})}">Update</a>-->
+            <!--<a th:href="@{/detail/{id}(id=${employee.id})}">Details</a>-->
+            <!--<a th:href="@{/delete/{id}(id=${employee.id})}">Delete</a>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</table>-->
+<div th:replace="base::bootstrapjs"></div>
+</body>
+</html>
